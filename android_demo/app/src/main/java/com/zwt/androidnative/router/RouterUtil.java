@@ -53,6 +53,7 @@ public class RouterUtil {
         return ARouter.getInstance().build(path);
     }
 
+    //打开原生页面
     public static void open(Context context, String path, Map params, int requestCode) {
         Bundle bundle = new Bundle();
         if (params != null && params.size() > 0) {
@@ -66,10 +67,12 @@ public class RouterUtil {
 
     }
 
+    // Native和Flutter的映射处理
     public static void openPageByUrl(Context context, String url, Map params) {
         openPageByUrl(context, url, params, 0);
     }
 
+    //Native和Flutter的映射处理
     public static void openPageByUrl(Context context, String url, Map params, int requestCode) {
         Log.i("RouterUtil", "url [" + url + "] params [" + (params != null ? params.toString() : "is null") + "] requestCode [" + requestCode + "]");
         //获取路由path
@@ -99,11 +102,12 @@ public class RouterUtil {
         }
     }
 
+    //是否是native路由
     private static boolean isNative(String url) {
         return TextUtils.equals(url.split("://")[0], PROTOCOL_NATIVE);
     }
 
-
+    //将传递的path转换成native路由
     public static String getBoostToRouter(String path) {
         String nativePath = null;
         if (!TextUtils.isEmpty(path)) {
@@ -116,6 +120,7 @@ public class RouterUtil {
         return nativePath;
     }
 
+    //获取Flutter传递数据
     public static Map<String, Object> getParams(Intent intent) {
         Map<String, Object> params = null;
         if (intent != null) {
@@ -127,6 +132,7 @@ public class RouterUtil {
         return params;
     }
 
+   //获取Flutter回传数据
     public static Map<String, Object> getResultParams(Intent intent) {
         Map<String, Object> params = null;
         if (intent != null) {
@@ -138,6 +144,7 @@ public class RouterUtil {
         return params;
     }
 
+    //设置回传给Flutter数据
     public static void setResult(Activity activity, Map<String, Object> map) {
         Intent intent = new Intent();
         intent.putExtra(IFlutterViewContainer.RESULT_KEY, (Serializable) map);

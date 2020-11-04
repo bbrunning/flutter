@@ -18,7 +18,7 @@ class _InnerState extends State<FlutterMainPage>{
      appBar: AppBar(title: Text('MainPage'),),
      body: Column(
        children: <Widget>[
-         Text("${_value.toString()}"),
+         Text("接收回传数据${_value.toString()}"),
          RaisedButton(
            child: Text('flutter 跳转 native'),
            onPressed: () {

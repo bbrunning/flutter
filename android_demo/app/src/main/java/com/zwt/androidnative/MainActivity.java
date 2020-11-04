@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
     public static final int REQUEST_CODE_KEY = 1002;
 
     private Context mContext;
+    private TextView mBackDataView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MainActivity extends Activity {
         TextView open_flutter_main = (TextView) findViewById(R.id.open_flutter_main);
         TextView btn1 = (TextView) findViewById(R.id.btn1);
         TextView btn2 = (TextView) findViewById(R.id.btn2);
+        mBackDataView = (TextView) findViewById(R.id.back_data);
 
 
         open_flutter_main.setOnClickListener(v -> RouterUtil.openPageByUrl(mContext, RouterUtil.FLUTTER_MAIN_PAGE, null));
@@ -52,6 +54,9 @@ public class MainActivity extends Activity {
             Map<String, Object> params = RouterUtil.getResultParams(data);
             if (params != null && params.size() > 0) {
                 Log.e("MainActivity", "params [" + params.toString() + "]");
+                if (mBackDataView != null) {
+                    mBackDataView.setText("onActivityResult [" + params.toString() + "]");
+                }
             }
         }
     }

@@ -19,8 +19,11 @@ import io.flutter.embedding.android.FlutterView;
  */
 public class FlutterBoostUtil {
    private static final String TAG = FlutterBoostUtil.class.getSimpleName();
+
+   //初始化
     public static void init(Application context) {
 
+        //Flutter_boost 路由监听
         INativeRouter router = (context1, url, urlParams, requestCode, exts) -> {
             String assembleUrl = Utils.assembleUrl(url, urlParams);
             RouterUtil.openPageByUrl(context1, assembleUrl, urlParams, requestCode);

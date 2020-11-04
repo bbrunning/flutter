@@ -27,4 +27,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="native 跳转 flutter 回传数据"/>
+
+    <TextView
+        android:id="@+id/back_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="接收回传数据"/>
 </LinearLayout>

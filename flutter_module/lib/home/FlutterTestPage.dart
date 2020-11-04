@@ -16,19 +16,24 @@ class FlutterTestPage extends StatefulWidget {
 class _InnerState extends State<FlutterTestPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          Text("接收到参数： ${widget.params.toString()}"),
-          RaisedButton(
-            child: Text("关闭并回传值"),
-            onPressed: () {
-              RouterUtil.close(context, result: <String, dynamic>{'params': 'back data'});
-            },
-          )
-        ],
-      ),
-      color: Colors.blue,
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('FlutterTestPage'),
+        ),
+        body: Container(
+          child: Column(
+            children: <Widget>[
+              Text("接收到参数： ${widget.params.toString()}"),
+              RaisedButton(
+                child: Text("关闭并回传值"),
+                onPressed: () {
+                  RouterUtil.close(context,
+                      result: <String, dynamic>{'params': 'back data'});
+                },
+              )
+            ],
+          ),
+          color: Colors.blue,
+        ));
   }
 }
