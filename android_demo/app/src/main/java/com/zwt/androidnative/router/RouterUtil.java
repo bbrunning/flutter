@@ -69,7 +69,7 @@ public class RouterUtil {
 
     // Native和Flutter的映射处理
     public static void openPageByUrl(Context context, String url, Map params) {
-        openPageByUrl(context, url, params, 0);
+        openPageByUrl(context, url, params, -1);
     }
 
     //Native和Flutter的映射处理
