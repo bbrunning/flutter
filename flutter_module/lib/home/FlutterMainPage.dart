@@ -22,7 +22,7 @@ class _InnerState extends State<FlutterMainPage>{
          RaisedButton(
            child: Text('flutter 跳转 native'),
            onPressed: () {
-             RouterUtil.open(NATIVE_TEST_PAGE, urlParams: <String, dynamic> {'params':"request data"}).then((Map<dynamic, dynamic> value) {
+             RouterUtil.open(NATIVE_TEST_PAGE, urlParams: <String, dynamic> {'params':"我是来自于flutter的数据"}).then((Map<dynamic, dynamic> value) {
                setState(() {
                  _value = value;
                });

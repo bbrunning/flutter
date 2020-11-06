@@ -25,10 +25,10 @@ class _InnerState extends State<FlutterTestPage> {
             children: <Widget>[
               Text("接收到参数： ${widget.params.toString()}"),
               RaisedButton(
-                child: Text("关闭并回传值"),
+                child: Text(widget.params.toString().contains("requestCode") ? "返回native并回传值" : "返回native"),
                 onPressed: () {
                   RouterUtil.close(context,
-                      result: <String, dynamic>{'params': 'back data'});
+                      result: <String, dynamic>{'params': '我是来自于flutter的回传数据'});
                 },
               )
             ],

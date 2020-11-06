@@ -1,6 +1,8 @@
 package com.zwt.androidnative;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,16 +22,18 @@ public class NativeTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_native_test);
         Map<String, Object> params = RouterUtil.getParams(getIntent());
         TextView params_view = (TextView) findViewById(R.id.params_view);
+        Button finish_btn = (Button) findViewById(R.id.finish_btn);
         if (params != null) {
             params_view.setText(params.toString());
         }
-    }
-
-    @Override
-    public void finish() {
-        Map<String, Object> data = new HashMap<>();
-        data.put("params", "back data");
-        RouterUtil.setResult(this, data);
-        super.finish();
+        finish_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String, Object> data = new HashMap<>();
+                data.put("params", "我是native 回传到 flutter的数据");
+                RouterUtil.setResult(NativeTestActivity.this, data);
+                finish();
+            }
+        });
     }
 }

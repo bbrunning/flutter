@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -26,9 +27,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         mContext = this;
 
-        TextView open_flutter_main = (TextView) findViewById(R.id.open_flutter_main);
-        TextView btn1 = (TextView) findViewById(R.id.btn1);
-        TextView btn2 = (TextView) findViewById(R.id.btn2);
+        Button open_flutter_main = (Button) findViewById(R.id.open_flutter_main);
+        Button btn1 = (Button) findViewById(R.id.btn1);
+        Button btn2 = (Button) findViewById(R.id.btn2);
         mBackDataView = (TextView) findViewById(R.id.back_data);
 
 
@@ -36,13 +37,13 @@ public class MainActivity extends Activity {
 
         btn1.setOnClickListener(v -> {
             Map<String, Object> map = new HashMap<>();
-            map.put("params", "intent data");
+            map.put("params", "我是来自于native的数据");
             RouterUtil.openPageByUrl(mContext, RouterUtil.FLUTTER_TEST_PAGE, map);
         });
 
         btn2.setOnClickListener(v -> {
             Map<String, Object> map = new HashMap<>();
-            map.put("params", "intent data and get data");
+            map.put("params", "我是来自于native的数据 ，并设置了requestCode");
             RouterUtil.openPageByUrl(mContext, RouterUtil.FLUTTER_TEST_PAGE, map, REQUEST_CODE_KEY);
         });
     }

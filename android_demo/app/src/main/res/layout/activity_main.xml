@@ -8,20 +8,20 @@
     android:gravity="center_horizontal"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
         android:id="@+id/open_flutter_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="打开flutter main"/>
 
-    <TextView
+    <Button
         android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="native 跳转 flutter"/>
-    <TextView
+    <Button
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
